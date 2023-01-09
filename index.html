@@ -21,12 +21,18 @@
         <h1 class="text-center mt-5">Join or Create a Game</h1>
         <div class="input-group mt-5">
             <input id="idInput" type="number" class="form-control" placeholder="Enter game ID">
-            <button class="form-control" onclick="CreateNewGame();">Create</button>
-            <button class="form-control" onclick="JoinGame();"">Join</button>
+            <button class="form-control btn btn-warning" onclick="CreateNewGame();">Create</button>
+            <button class="form-control btn btn-success" onclick="JoinGame();"">Join</button>
         </div>
+
         <span class="text-danger" hidden>
             ID is not available
         </span>
+
+        <div class="input-group mt-5">
+            <a class="btn btn-primary form-control mt-5" href="offlinePvP.html">Offline PvP Game</a>
+            <a class="btn btn-primary form-control mt-5" href="offlinePvAi.html">Offline PvAi Game</a>
+        </div>
     </div>
 
     <script>

@@ -63,6 +63,9 @@
     </div>
 
     <script>
+        const websiteUrl = "https://rra5400.azurewebsites.net/";
+        // const websiteUrl = "https://localhost:7160/";
+        
         let type = GetURLParameter("type");
         let gameId = GetURLParameter("id");
         let playerTypeBtn = document.getElementById("playerTypeBtn");
@@ -90,7 +93,7 @@
             }
             el.innerHTML = playerType;
             let playerTypeInt = playerType == "X" ? 1 : 2;
-            await fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=${id}_${gameId}&value=${playerTypeInt}`)  
+            await fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=${id}_${gameId}&value=${playerTypeInt}`)  
             .then((response) => response.json())
             .then((data) => {
 
@@ -99,28 +102,28 @@
 
         function ResetGame() {
             document.getElementById("a1").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a1_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a1_${gameId}&value=0`)
             document.getElementById("a2").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a2_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a2_${gameId}&value=0`)
             document.getElementById("a3").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a3_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a3_${gameId}&value=0`)
             document.getElementById("a4").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a4_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a4_${gameId}&value=0`)
             document.getElementById("a5").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a5_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a5_${gameId}&value=0`)
             document.getElementById("a6").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a6_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a6_${gameId}&value=0`)
             document.getElementById("a7").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a7_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a7_${gameId}&value=0`)
             document.getElementById("a8").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a8_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a8_${gameId}&value=0`)
             document.getElementById("a9").innerHTML = "-";
-            fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a9_${gameId}&value=0`)
+            fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a9_${gameId}&value=0`)
         }
 
         var interval = setInterval(function () {
             for (let i = 1; i < 10; i++) {
-                fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=a${i}_${gameId}`)  
+                fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=a${i}_${gameId}`)  
                 .then((response) => response.json())
                 .then((data) => {
 
@@ -169,7 +172,7 @@
             else {
                 document.getElementsByTagName("h1")[0].innerHTML = ` `;
             }
-        }, 1000);
+        }, 100);
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

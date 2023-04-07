@@ -37,13 +37,16 @@
 
     <script>
 
+        const websiteUrl = "https://rra5400.azurewebsites.net/";
+        // const websiteUrl = "https://localhost:7160/";
+
         const idInput = document.getElementById("idInput");
         let id;
 
         async function StartNewGame(type) {
             id = idInput.value;
 
-            await fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=XOONLINEGAME${id}&value=1`)  
+            await fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=XOONLINEGAME${id}&value=1`)  
 
             window.location.href = `./game.html?id=XOONLINEGAME${id}&type=${type}`;
         }
@@ -51,7 +54,7 @@
         async function CreateNewGame() {
             id = idInput.value;
 
-            await fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=XOONLINEGAME${id}`)  
+            await fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=XOONLINEGAME${id}`)  
             .then((response) => response.json())
             .then((data) => {
                 // data[1] == 0
@@ -66,7 +69,7 @@
     
         async function JoinGame() {
             id = idInput.value;
-            await fetch(`https://rra5400.azurewebsites.net/Main/ForceUpdateKeyValue?key=XOONLINEGAME${id}`)  
+            await fetch(`${websiteUrl}Main/ForceUpdateKeyValue?key=XOONLINEGAME${id}`)  
             .then((response) => response.json())
             .then((data) => {
                 if (data[1] == 1) {
